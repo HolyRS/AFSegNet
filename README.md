@@ -94,7 +94,7 @@ The `images/` folder contains the remote sensing images, and the `labels/` folde
 Before training, run the dataset splitting script to randomly divide the dataset into training, validation, and test subsets with a ratio of 7:1.5:1.5. During this process, all non-zero pixels in the label masks will be converted to 1, while background pixels remain 0.
 
 ```bash
-python tools/split_dataset.py \
+python split_dataset_copy_binary_mask.py \
     --dataset_root "datasets/AbandonedFarmland 512" \
     --output_root "data" \
     --seed 42
