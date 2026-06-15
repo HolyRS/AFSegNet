@@ -79,24 +79,45 @@ pip install -r requirements.txt
 
 ## Data Preparation
 
-After downloading the dataset, organise the files as follows:
+After downloading the 512 × 512 abandoned farmland dataset from Baidu Netdisk, please first organise the original dataset as follows:
 
 ```text
-datasets/
-└── AbandonedFarmland/
-    ├── images/
-    ├── masks/
-    └── splits/
-        ├── train.txt
-        ├── val.txt
-        └── test.txt
+AFSegNet/
+└── datasets/
+    └── AbandonedFarmland 512/
+        ├── images/
+        └── labels/
 ```
 
-Please make sure that the image and mask filenames are correctly matched.
+The `images/` folder contains the remote sensing images, and the `labels/` folder contains the corresponding pixel-level annotation masks. Please make sure that each image and its corresponding label have the same filename.
 
-For reproducing the main comparative experiments, we recommend using the 512 × 512 dataset. The 256 × 256 dataset is mainly intended for lightweight reproduction and module-level computational analysis.
+Before training, run the dataset splitting script to randomly divide the dataset into training, validation, and test subsets with a ratio of 7:1.5:1.5. During this process, all non-zero pixels in the label masks will be converted to 1, while background pixels remain 0.
 
----
+```bash
+python tools/split_dataset.py \
+    --dataset_root "datasets/AbandonedFarmland 512" \
+    --output_root "data" \
+    --seed 42
+```
+
+After running the script, the processed dataset will be generated as follows:
+
+```text
+AFSegNet/
+└── data/
+    ├── train/
+    │   ├── images/
+    │   └── labels/
+    ├── val/
+    │   ├── images/
+    │   └── labels/
+    └── test/
+        ├── images/
+        └── labels/
+```
+
+The random seed ensures that the dataset split is reproducible. For reproducing the main comparative experiments, we recommend using the 512 × 512 dataset. The 256 × 256 dataset is mainly intended for lightweight reproduction and module-level computational analysis.
+
 
 ## Training
 
