@@ -1,4 +1,170 @@
-# AFSegNet
-Hybrid Remote Sensing Segmentation for Abandoned Farmland with  Spatial Structure Modeling and Visual State Space Learning
+# AFSegNet: Hybrid Remote Sensing Segmentation for Abandoned Farmland with Spatial Structure Modeling and Visual State Space Learning
 
-We commit to publicly releasing all datasets, source code, model weights, implementation details, and environment configurations upon acceptance of the paper, or earlier if requested by the reviewers during the review process.
+This repository provides the official implementation and reproducibility materials for **AFSegNet**, a hybrid semantic segmentation framework designed for abandoned farmland extraction from high-resolution remote sensing imagery.
+
+AFSegNet integrates CNN-based local feature extraction, Transformer-based contextual modelling, and visual state space learning within a dual-branch encoder--decoder architecture. A Direction Perception Selective Scan Block (DPSS Block) is introduced to enable direction-aware long-range representation learning, while a lightweight differentiable CRF<sup>+</sup> module is used for local spatial consistency enhancement and boundary refinement.
+
+---
+
+## News
+
+* The dataset, source code, trained model weights, data split files, evaluation scripts, and reproduction instructions have been released.
+* The abandoned farmland segmentation dataset is publicly available through Baidu Netdisk.
+
+---
+
+## Dataset
+
+We construct a benchmark dataset for abandoned farmland identification and segmentation from high-resolution remote sensing imagery.
+
+The dataset can be downloaded from:
+
+**Baidu Netdisk:** [Abandoned Farmland](https://pan.baidu.com/s/1AX-pxfubCwNN9XVjjoHRQA?pwd=kka4)
+**Extraction code:** `kka4`
+
+The dataset contains pixel-level annotations for abandoned farmland segmentation. The original dataset consists of annotated 512 × 512 image patches for the main comparative experiments. An auxiliary 256 × 256 version is also provided for lightweight reproduction and module-level computational analysis.
+
+---
+
+## Repository Structure
+
+```text
+AFSegNet/
+├── configs/                 # Configuration files
+├── datasets/                # Dataset loading and preprocessing scripts
+├── models/                  # AFSegNet model and core modules
+├── tools/                   # Training, testing, and evaluation scripts
+├── weights/                 # Trained model weights
+├── splits/                  # Training, validation, and test split files
+├── figures/                 # Example visualisations
+├── requirements.txt         # Python dependencies
+└── README.md
+```
+
+---
+
+## Main Components
+
+* **Dual-branch encoder:** combines CNN--Transformer representation learning with visual state space modelling.
+* **DPSS Block:** performs direction-aware selective scanning for spatially coherent long-range feature aggregation.
+* **Channel-attentive skip connections:** strengthen cross-scale feature fusion.
+* **CRF<sup>+</sup> refinement:** improves local spatial consistency and boundary-level prediction quality.
+* **Multi-scale decoder:** progressively restores spatial details for accurate abandoned farmland segmentation.
+
+---
+
+## Installation
+
+We recommend creating a new conda environment:
+
+```bash
+conda create -n afsegnet python=3.8 -y
+conda activate afsegnet
+```
+
+Install PyTorch according to your CUDA version, then install the remaining dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Data Preparation
+
+After downloading the dataset, organise the files as follows:
+
+```text
+datasets/
+└── AbandonedFarmland/
+    ├── images/
+    ├── masks/
+    └── splits/
+        ├── train.txt
+        ├── val.txt
+        └── test.txt
+```
+
+Please make sure that the image and mask filenames are correctly matched.
+
+---
+
+## Training
+
+To train AFSegNet, run:
+
+```bash
+python tools/train.py --config configs/afsegnet.yaml
+```
+
+The training logs and checkpoints will be saved automatically.
+
+---
+
+## Testing
+
+To evaluate a trained model, run:
+
+```bash
+python tools/test.py \
+    --config configs/afsegnet.yaml \
+    --checkpoint weights/afsegnet.pth
+```
+
+---
+
+## Evaluation Metrics
+
+The following metrics are used for quantitative evaluation:
+
+* Overall Accuracy (OA)
+* Mean Intersection over Union (mIoU)
+* F1-score
+* Precision
+* Recall
+
+---
+
+## Visualisation
+
+Prediction maps and qualitative comparison results can be generated using:
+
+```bash
+python tools/visualize.py \
+    --config configs/afsegnet.yaml \
+    --checkpoint weights/afsegnet.pth
+```
+
+---
+
+## Data Availability
+
+The dataset, source code, trained model weights, data split files, evaluation scripts, and detailed instructions for reproducing the experimental results are publicly available in this repository and through the dataset download link provided above. The repository will be maintained to support reproducibility and future research on abandoned farmland segmentation.
+
+---
+
+## Citation
+
+If you use this dataset or code in your research, please cite our work:
+
+```bibtex
+@article{zhang2026afsegnet,
+  title={AFSegNet: Hybrid Remote Sensing Segmentation for Abandoned Farmland with Spatial Structure Modeling and Visual State Space Learning},
+  author={Zhang, Yongsheng and Lai, Shanyan and Ahmad, Tanvir and Zhou, Hui and Ye, Chunyang},
+  journal={Ecological Informatics},
+  year={2026}
+}
+```
+
+---
+
+## Contact
+
+For questions regarding the dataset, code, or reproducibility, please contact:
+
+**Yongsheng Zhang**
+Email: [yszhang@hainanu.edu.cn](mailto:yszhang@hainanu.edu.cn)
+
+**Corresponding author:** Chunyang Ye
+Email: [cyye@hainanu.edu.cn](mailto:cyye@hainanu.edu.cn)
+
