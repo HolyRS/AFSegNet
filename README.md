@@ -18,9 +18,6 @@ Segmenting abandoned farmland from high-resolution remote sensing images is chal
   <img src="Abandoned%20Farmland.PNG" width="850">
 </p>
 
-<p align="center">
-  <b>Figure.</b> Typical visual challenges in abandoned farmland segmentation, including ambiguous boundaries, irregular shapes, heterogeneous textures, and high intra-class variability.
-</p>
 
 ---
 ## News
