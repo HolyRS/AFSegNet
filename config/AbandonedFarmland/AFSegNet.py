@@ -24,7 +24,7 @@ crop_size = int(512*float(image_size/1024))
 
 weights_name = "AFSegNet-"+str(image_size)+"-e"+str(max_epoch)
 weights_path = "model_weights/Abandoned Farmland/{}".format(weights_name)
-test_weights_name = "AFSegNet-"+str(image_size)+"-e"+str(max_epoch)+"-v4"
+test_weights_name = "AFSegNet-"+str(image_size)+"-e"+str(max_epoch)
 log_name = 'Abandoned Farmland/{}'.format(weights_name)
 monitor = 'val_mIoU'
 monitor_mode = 'max'
