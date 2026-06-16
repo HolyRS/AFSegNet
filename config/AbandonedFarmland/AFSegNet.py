@@ -24,7 +24,7 @@ crop_size = int(512*float(image_size/1024))
 
 weights_name = "AFSegNet-"+str(image_size)+"-e"+str(max_epoch)
 weights_path = "model_weights/Abandoned Farmland/{}".format(weights_name)
-test_weights_name = "AFSegNet-"+str(image_size)+"-e"+str(max_epoch)+"-v4"
+test_weights_name = "AFSegNet-"+str(image_size)+"-e"+str(max_epoch)
 log_name = 'Abandoned Farmland/{}'.format(weights_name)
 monitor = 'val_mIoU'
 monitor_mode = 'max'
@@ -106,14 +106,14 @@ def val_aug(img, mask):
     img, mask = aug['image'], aug['mask']
     return img, mask
 
-train_dataset = VaihingenDataset(data_root='data/train', mode='train',
+train_dataset = Dataset(data_root='data/train', mode='train',
                                  mosaic_ratio=0.25, transform=train_aug)
 
 
-val_dataset = VaihingenDataset(data_root='data/val',mode='val',
+val_dataset = Dataset(data_root='data/val',mode='val',
                                transform=val_aug)
 
-test_dataset = VaihingenDataset(data_root='data/test',mode='test',
+test_dataset = Dataset(data_root='data/test',mode='test',
                                 transform=val_aug)
 
 pin_memory = True
