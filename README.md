@@ -107,7 +107,7 @@ AFSegNet/
         └── labels/
 ```
 
-The random seed ensures that the dataset split is reproducible. For reproducing the main comparative experiments, we recommend using the 512 × 512 dataset. The 256 × 256 dataset is mainly intended for lightweight reproduction and module-level computational analysis.
+The random seed ensures that the dataset split is reproducible.To improve reproducibility, the random seeds used for dataset splitting were set as seed = [134789831749, 1628453179, 2043987623, 42, 35]. For reproducing the main comparative experiments, we recommend using the 512 × 512 dataset. The 256 × 256 dataset is mainly intended for lightweight reproduction and module-level computational analysis.
 
 
 ## Training
@@ -115,59 +115,20 @@ The random seed ensures that the dataset split is reproducible. For reproducing 
 To train AFSegNet, run:
 
 ```bash
-python tools/train.py --config configs/afsegnet.yaml
+python train.py -c config/AbandonedFarmland/AFSegNet.py
 ```
 
 The training logs and checkpoints will be saved automatically.
 
 ---
 
-## Testing
+## Testing and Visualisation
 
 To evaluate a trained model, run:
 
 ```bash
-python tools/test.py \
-    --config configs/afsegnet.yaml \
-    --checkpoint weights/afsegnet.pth
+python test.py -c config/AbandonedFarmland/AFSegNet.py -o fig_results/af/test
 ```
-
----
-
-## Evaluation Metrics
-
-The following metrics are used for quantitative evaluation:
-
-* Overall Accuracy (OA)
-* Mean Intersection over Union (mIoU)
-* F1-score
-* Precision
-* Recall
-
----
-
-## Visualisation
-
-Prediction maps and qualitative comparison results can be generated using:
-
-```bash
-python tools/visualize.py \
-    --config configs/afsegnet.yaml \
-    --checkpoint weights/afsegnet.pth
-```
-
----
-
-## Data Availability
-
-The dataset, source code, trained model weights, data split files, evaluation scripts, and detailed instructions for reproducing the experimental results are publicly available in this repository and through the dataset download links provided below.
-
-### Dataset Download Links
-
-* **512 × 512 Abandoned Farmland Dataset:** [Baidu Netdisk](https://pan.baidu.com/s/1X4ok7HhKmjRhAAx1Uhz35g), extraction code: `nx8b`
-* **256 × 256 Abandoned Farmland Dataset:** [Baidu Netdisk](https://pan.baidu.com/s/1B0AqtrM1aaqXE5dMYtTHxg), extraction code: `hd9z`
-
-The repository will be maintained to support reproducibility and future research on abandoned farmland segmentation.
 
 ---
 
