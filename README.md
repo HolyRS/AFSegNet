@@ -2,6 +2,8 @@
 
 This repository provides the official implementation and reproducibility materials for **AFSegNet**, a hybrid semantic segmentation framework designed for abandoned farmland extraction from high-resolution remote sensing imagery.
 
+<img src="AFSegNet.png" width="850">
+
 AFSegNet integrates CNN-based local feature extraction, Transformer-based contextual modelling, and visual state space learning within a dual-branch encoder--decoder architecture. A Direction Perception Selective Scan Block (DPSS Block) is introduced to enable direction-aware long-range representation learning, while a lightweight differentiable CRF<sup>+</sup> module is used for local spatial consistency enhancement and boundary refinement.
 
 ---
