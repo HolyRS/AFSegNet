@@ -147,6 +147,8 @@ To evaluate a trained model, run:
 python test.py -c config/AbandonedFarmland/AFSegNet.py -o fig_results/af/test
 ```
 
+<img src="Visualization.PNG" width="850">
+
 ---
 
 ## Citation
