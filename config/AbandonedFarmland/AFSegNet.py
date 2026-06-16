@@ -106,14 +106,14 @@ def val_aug(img, mask):
     img, mask = aug['image'], aug['mask']
     return img, mask
 
-train_dataset = VaihingenDataset(data_root='data/train', mode='train',
+train_dataset = Dataset(data_root='data/train', mode='train',
                                  mosaic_ratio=0.25, transform=train_aug)
 
 
-val_dataset = VaihingenDataset(data_root='data/val',mode='val',
+val_dataset = Dataset(data_root='data/val',mode='val',
                                transform=val_aug)
 
-test_dataset = VaihingenDataset(data_root='data/test',mode='test',
+test_dataset = Dataset(data_root='data/test',mode='test',
                                 transform=val_aug)
 
 pin_memory = True
