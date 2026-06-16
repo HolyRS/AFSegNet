@@ -13,7 +13,7 @@ Abandoned farmland refers to agricultural land that was previously cultivated bu
 Segmenting abandoned farmland from high-resolution remote sensing images is challenging. Unlike regular cropland, abandoned farmland usually has irregular field shapes, weakened or blurred boundaries, heterogeneous textures, and high intra-class variability. Its visual appearance can also be easily confused with surrounding land-cover types such as woodland, grassland, wetlands, paddy fields, and unmanaged vegetation. These characteristics make abandoned farmland segmentation a difficult task for general semantic segmentation models.
 
 <p align="center">
-  <img src="Abandoned%20Farmland.png" width="850">
+  <img src="Abandoned%20Farmland.PNG" width="850">
 </p>
 
 <p align="center">
