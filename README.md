@@ -105,7 +105,7 @@ Before training, run the dataset splitting script to randomly divide the dataset
 python split_dataset_copy_binary_mask.py \
     --dataset_root "datasets/AbandonedFarmland 512" \
     --output_root "data" \
-    --seed 42
+    --seed 134789831749
 ```
 
 After running the script, the processed dataset will be generated as follows:
