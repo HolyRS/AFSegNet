@@ -8,7 +8,7 @@ AFSegNet integrates CNN-based local feature extraction, Transformer-based contex
 
 ## News
 
-* The dataset, source code, trained model weights, data split files, evaluation scripts, and reproduction instructions have been released.
+* The dataset, source code, data split files, evaluation scripts, and reproduction instructions have been released.
 * Two versions of the abandoned farmland segmentation dataset are publicly available through Baidu Netdisk.
 
 ---
@@ -50,23 +50,14 @@ AFSegNet/
 
 ---
 
-## Main Components
-
-* **Dual-branch encoder:** combines CNN--Transformer representation learning with visual state space modelling.
-* **DPSS Block:** performs direction-aware selective scanning for spatially coherent long-range feature aggregation.
-* **Channel-attentive skip connections:** strengthen cross-scale feature fusion.
-* **CRF<sup>+</sup> refinement:** improves local spatial consistency and boundary-level prediction quality.
-* **Multi-scale decoder:** progressively restores spatial details for accurate abandoned farmland segmentation.
-
----
 
 ## Installation
 
 We recommend creating a new conda environment:
 
 ```bash
-conda create -n afsegnet python=3.8 -y
-conda activate afsegnet
+conda create -n AFSegNet python=3.8 -y
+conda activate AFSegNet
 ```
 
 Install PyTorch according to your CUDA version, then install the remaining dependencies:
