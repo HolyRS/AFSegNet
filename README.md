@@ -6,6 +6,21 @@ AFSegNet integrates CNN-based local feature extraction, Transformer-based contex
 
 ---
 
+## What Is Abandoned Farmland?
+
+Abandoned farmland refers to agricultural land that was previously cultivated but is no longer actively managed or used for crop production. In remote sensing imagery, abandoned farmland often appears as a transitional land-cover type between cultivated fields and natural vegetation. It may contain mixed herbaceous plants, shrubs, weeds, fragmented crop residues, or gradually recovering vegetation.
+
+Segmenting abandoned farmland from high-resolution remote sensing images is challenging. Unlike regular cropland, abandoned farmland usually has irregular field shapes, weakened or blurred boundaries, heterogeneous textures, and high intra-class variability. Its visual appearance can also be easily confused with surrounding land-cover types such as woodland, grassland, wetlands, paddy fields, and unmanaged vegetation. These characteristics make abandoned farmland segmentation a difficult task for general semantic segmentation models.
+
+<p align="center">
+  <img src="Abandoned%20Farmland.png" width="850">
+</p>
+
+<p align="center">
+  <b>Figure.</b> Typical visual challenges in abandoned farmland segmentation, including ambiguous boundaries, irregular shapes, heterogeneous textures, and high intra-class variability.
+</p>
+
+---
 ## News
 
 * The dataset, source code, data split files, evaluation scripts, and reproduction instructions have been released.
